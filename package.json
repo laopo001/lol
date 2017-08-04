@@ -1,0 +1,24 @@
+{
+  "name": "lol",
+  "version": "1.0.0",
+  "description": "a state container",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angular",
+    "lol",
+    "state"
+  ],
+  "author": "dadigua",
+  "license": "MIT",
+  "dependencies": {
+    "reflect-metadata": "^0.1.10",
+    "symbol-observable": "^1.0.4",
+    "tslib": "^1.7.1"
+  }
+}
