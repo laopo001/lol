@@ -43,45 +43,7 @@ export function autoLoad(key: string, select: Function = function () { return th
         descriptor.value = newValue
     }
 }
-var throttleF = require('lodash.throttle');
-export function throttle(time: number, option: Object) {
-    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
-        let old = descriptor.value;
-        let newValue = throttleF(old, time, option)
-        descriptor.value = newValue
-    }
-}
 
-export function toBoolean(value: any): boolean {
-
-    switch (value) {
-        case '':
-            return true;
-        case 'true':
-            return true;
-        case 'false':
-        case '1':
-            return true;
-        case '0':
-            return false;
-        default:
-            return !!value;
-    }
-}
-export function format(formatFnc: Function): any {
-    return function (target: any, key: string, descriptor) {
-        //var t = Reflect.getMetadata("design:type", target, key);
-        //console.log(`${key} type: ${t.name}`);
-        Object.defineProperty(target, key, {
-            set: function (x) {
-                this['$_' + key] = formatFnc(x)
-            },
-            get: function () {
-                return this['$_' + key];
-            }
-        })
-    }
-}
 
 /**
  * Prints a warning in the console if it exists.
@@ -105,34 +67,3 @@ export function warning(message) {
     /* eslint-enable no-empty */
 }
 
-export function createClass(className): any {
-    let data = new className();
-    let effects = data.__proto__;
-    while (!('$__namespace__$' in effects)) {
-        effects = effects.__proto__;
-    }
-    let namespace = effects['$__namespace__$'];
-    let onError = effects['onError'];
-    delete effects['onError']
-    let temp = { namespace };
-    delete effects['$__namespace__$']
-    Object.keys(effects).filter(x => x !== 'onError').forEach((x) => {
-
-        let res = Object.getOwnPropertyDescriptor(effects, x);
-        if (res.value == null) {
-            Object.defineProperty(temp, x, res);
-        } else {
-            temp[x] = namespace + '/' + x
-        }
-
-    })
-
-    // data.__proto__=Object.getPrototypeOf({})
-    data.__proto__ = temp;
-    return {
-        effects: effects,
-        state: data,
-        namespace: namespace,
-        onError: onError
-    }
-}
