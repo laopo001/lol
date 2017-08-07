@@ -1,1 +1,1 @@
-![Build Status](https://travis-ci.org/laopo001/lol.svg?branch=master)](https://travis-ci.org/laopo001/lol)
+[![Build Status](https://travis-ci.org/laopo001/lol.svg?branch=master)](https://travis-ci.org/laopo001/lol)
