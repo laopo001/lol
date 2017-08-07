@@ -1,21 +1,24 @@
 {
-  "name": "lol",
-  "version": "1.0.0",
+  "name": "lol2",
+  "version": "1.1.0",
   "description": "a state container",
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc",
+    "build": "tsc",
+    "test": "tsc&&jest"
   },
+  "types": "lib/index.d.ts",
   "keywords": [
     "angular",
     "lol",
     "state"
   ],
   "author": "dadigua",
+  "repository": "https://github.com/laopo001/lol.git",
   "license": "MIT",
   "dependencies": {
     "reflect-metadata": "^0.1.10",
@@ -24,10 +27,9 @@
   },
   "devDependencies": {
     "@types/node": "^8.0.19",
-    "ts-loader": "^2.3.2",
+    "jest": "^20.0.4",
     "tslint": "^5.5.0",
     "typescript": "^2.4.2",
-    "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.6.1"
+    "typescript-definition-tester": "0.0.5"
   }
 }

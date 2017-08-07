@@ -11,7 +11,9 @@
     "importHelpers": true,
     "strictNullChecks": false,
     // "allowJs": true,
-    "declaration":true,
+    "declaration": true,
+    // "declarationDir": "types",
+    "outDir": "lib",
     "lib": [
       "dom",
       "es6"
@@ -27,7 +29,7 @@
     "node_modules",
     "dist"
   ],
-  "include":[
+  "include": [
     "src"
   ],
   "compileOnSave": false,
