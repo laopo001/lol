@@ -1,0 +1,13 @@
+<strong>GitHub</strong>
+<nz-select style="width: 120px;" [(ngModel)]="selectedOption" nzAllowClear>
+    <nz-option *ngFor="let option of options" [nzLabel]="option.label" [nzValue]="option" [nzDisabled]="option.disabled">
+    </nz-option>
+</nz-select>
+<acTable [data]="data.repositories.items" rowKey="key" [pagination]="pagination">
+    <acTable-column [width]='300' heading="name" key="name"></acTable-column>
+    <acTable-column [width]='300' heading="language" key="language"></acTable-column>
+    <acTable-column [width]='300' heading="description" key="description"></acTable-column>
+    <acTable-column [width]='300' heading="Action" key="key">
+        <template columnCell let-row="row"><a (click)="delete(row.id)"> DELETE </a></template>
+    </acTable-column>
+</acTable>
