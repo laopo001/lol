@@ -3,5 +3,6 @@ node_modules/
 dist/
 build/
 publish/
-lib/
+src/
 out/
+tsconfig.json

@@ -82,6 +82,7 @@ const getEnv = function () {
     return _isProd ? 'production' : 'development';
 }
 
+
 const run = function (isProd = false) {
     _isProd = isProd;
     if (_models == null) {
@@ -175,6 +176,10 @@ export interface modelQuery {
     onAfter?: Function;
     onError?: Function;
 }
+/**
+ * 装饰器 将class变成一个lol.model
+ * @param {modelQuery} query 参数类型---modelQuery
+ */
 export function model(query: modelQuery): Function {
     return function (constructor: Function) {
         let { namespace, onBefore, onAfter, onError } = query;
@@ -222,6 +227,10 @@ export function model(query: modelQuery): Function {
         constructor.prototype[`$__namespace__$`] = namespace
     }
 }
+/**
+ * 日志生成装饰器
+ * @param {boolean} b 默认为true，输出日志
+ */
 export function log(b: boolean = true): Function {
     return function (constructor: Function) {
         if (b && !_isProd) {
@@ -259,6 +268,12 @@ export function log(b: boolean = true): Function {
 }
 
 const injectMetadataKey = Symbol("inject");
+
+
+/**
+ * 注入其他namespace数据 装饰器
+ * @param {(string | Function)} select 
+ */
 export function inject(select: string | Function): Function {
     return function (target: Object, propertyKey: string | symbol, descriptorORparameterIndex: number | PropertyDescriptor) {
         if (typeof descriptorORparameterIndex === 'number') {

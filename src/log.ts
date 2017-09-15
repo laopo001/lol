@@ -1,6 +1,21 @@
+/**
+ * 日志模块
+ * @module Logger 
+ * 
+ */
+
+/**
+ * 日志生成
+ * @class Logger
+ */
 export class Logger {
     list = []
     index = 0
+
+    /**
+     * 创建一个实例
+     * @constructor {any} args 
+     */
     constructor(...args) {
         if (args.length != 0) {
             this.list.push(args);
