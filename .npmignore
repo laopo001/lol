@@ -5,4 +5,5 @@ build/
 publish/
 src/
 out/
-tsconfig.json
+tsconfig.json/
+examples/
