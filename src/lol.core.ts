@@ -254,7 +254,7 @@ export function log(b: boolean = true): Function {
                             L.log("current state:", state).end()
                         }
                         let runError = function (e) {
-                            L.error("error:", e.message || e).end()
+                            L.error("error:", e).end()
                         }
                         return tryRun(oldValue, that, args, runFollow, runError);
                     }
