@@ -241,7 +241,8 @@ export function log(b: boolean = true): Function {
                     let newValue = function (...args) {
                         let action = { type: this[`$__namespace__$`] + '/' + x, args: args }
                         let L = new Logger("dispatch log -----  %c" + action.type, "color:#6a8b82", " ----- action args:", action.args.length === 1 ? action.args[0] : action.args || 'arguments None');
-                        let state = lol.select(x => x[this[`$__namespace__$`]])
+                        // let state = lol.select(x => x[this[`$__namespace__$`]]);
+                        let state = this;
                         var that = runProxy(state, this[`$__namespace__$`], (key, oldValue, newValue) => {
                             if (oldValue === newValue) {
                                 L.log("change property:%s --- %coldValue:%o ====%c newValue:%o", key, "color:red", oldValue, "color:red", newValue)
