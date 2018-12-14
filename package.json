@@ -1,0 +1,36 @@
+{
+  "name": "lol2",
+  "version": "1.1.6",
+  "description": "a state container",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "tsc",
+    "build": "tsc",
+    "test": "tsc&&jest"
+  },
+  "prepublish": "tsc",
+  "types": "lib/index.d.ts",
+  "keywords": [
+    "angular",
+    "lol",
+    "state"
+  ],
+  "author": "dadigua",
+  "repository": "https://github.com/laopo001/lol.git",
+  "license": "MIT",
+  "dependencies": {
+    "reflect-metadata": "^0.1.10",
+    "symbol-observable": "^1.0.4",
+    "tslib": "^1.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.19",
+    "jest": "^20.0.4",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.2",
+    "typescript-definition-tester": "0.0.5"
+  }
+}
